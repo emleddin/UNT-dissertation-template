@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{INTRODUCTION}
+\chapter{\MyChapOne}
+
+%\includegraphics{3-images/1-Intro/XXX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\footnotetext{Portions of the text in this section were reprinted or adapted with permission from:
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:1-Intro}
+
+Welcome to my glorious dissertation.
+I'm going to talk about a lot of stuff here.
+Well, maybe not, but I'm at least going to present some images, like in \Fref{fig:1-example}.
+
+%%---------Example Figure--------%%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{example-image-a}
+\caption{Example image A.}
+\label{fig:1-example}
+\end{figure}
+%%-------------------------------%%
+
+And, since that was so fun, I'll add a few more. Please see \MFref{fig:1-ex2} and \Fref{fig:1-ex3}.
+
+%%---------Example Figure--------%%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{example-image-b}
+\caption{Example image B.}
+\label{fig:1-ex2}
+\end{figure}
+%%-------------------------------%%
+
+%%---------Example Figure--------%%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{example-image-c}
+\caption{Example image C.}
+\label{fig:1-ex3}
+\end{figure}
+%%-------------------------------%%
+
+I also included some deeply annoying tables (\MTref{tab:1-basic-table} and \Tref{tab:1-another-table}), to give you an idea of when to use certain commands and macros.
+
+%%---------Example Table--------%%
+\begin{table}
+    \centering
+    \caption{A table with vertical lines and a footnote.}
+    \label{tab:1-basic-table}
+\begin{tabular*}{0.87\textwidth}{ L{1in} | C{2.9in} | R{1in} }
+ \hline
+ item 11  & item 12  & item 13\textsuperscript{a} \T \B \\
+ \hline
+ item 21  & item 22  & item 23  \T \\
+ item 31  & item 32  & item 33  \\
+ item 41  & item 42  & item 43  \\
+ item 51  & item 52  & item 53  \B \\
+\hline
+\end{tabular*}
+\\
+\raggedright{\T
+\footnotesize{\textsuperscript{a}An example footnote goes here.\\
+}}
+%}
+\end{table}
+%%-------------------------------%%
+
+%%---------Example Table--------%%
+\begin{table}
+    \centering
+    \caption{A standard table.}
+    \label{tab:1-another-table}
+\begin{tabular}{ c c c }
+ \toprule
+ item 11  & item 12  & item 13  \\
+ item 21  & item 22  & item 23  \\
+ item 31  & item 32  & item 33  \\
+ item 41  & item 42  & item 43  \\
+ item 51  & item 52  & item 53  \\
+\bottomrule
+\end{tabular}
+\end{table}
+%%-------------------------------%%
+
+Anyway, I wish you luck in making your own tables, because it's hard.

@@ -1,4 +1,7 @@
+%% For online PDF (UNT ETD)
 \documentclass[12pt, titlepage, openany]{amsbook}
+%% For printing/binding
+%\documentclass[12pt, titlepage, twoside, openright]{amsbook}
 
 %%% Comment or uncomment any or all of the following packages as
 %%% necessary. TeX will run faster the fewer packages it has to load... 
@@ -14,28 +17,47 @@
 %%% For diagrams and "pics." Tikz is probably a better choice...
 \usepackage[all]{xy}
 
-%%% For hyperrefs, breaklinks might cause problems (or not really help with
-%%% long hyperrefs...) 
-% Uncomment the follwing two lines and change "allcolors=black" to
-% "allcolors=untgreen" to get UNT branded green hyperlinks
-\usepackage{color}
+%%% Set up coloration
+\usepackage[table,xcdraw]{xcolor}
 \definecolor{untgreen}{RGB}{5,144,51}
-%\usepackage{aliascnt} 
-\usepackage[colorlinks, linktocpage, allcolors=untgreen,%
-breaklinks]{hyperref}
+%%% Define additional colors here
+%% Seafoam is currently used for the Abbreviations chapter
+\definecolor{seafoam}{HTML}{7EFF9C}
+%\definecolor{PaleOrange}{HTML}{FFCF7E}
 
-
-%%% One option for complicated tables and arrays. The array package is used
-%%% in 
+%%% An option for complicated tables and arrays.
 \usepackage{array} 
 
+%%% Tables on hard mode: R, C, L
+%%% Make LaTeX accept ragged with a set width for paragraph mode
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+%%% Add Top and Bottom vertical struts in you need vertical lines
+%%% in your tables
+\newcommand\T{\rule{0pt}{2.6ex}}       % Top strut
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}} % Bottom strut
+
 %%% One option for including graphics
-%\usepackage{graphicx}
+\usepackage{graphicx}
+\graphicspath{{3-images/}}
 
 %%% For professional tables (as in the appendix), comment out if there are
 %%% no tables
 \usepackage{booktabs, caption, multicol}
 
+%%% Add setspace to make singlespace captions possible in combination
+%%% with the caption package
+\usepackage{setspace}
+\captionsetup{font={singlespacing}}
+
+%%% Fix footnotes in section titles
+\usepackage[stable]{footmisc}
+%%% Use symbols for footnotes
+%%% (Needed for ACS style, since superscript is used for references)
+%\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
 
 %%% Uncomment the following line to get the computer modern equivalent of
 %%% ``arial.'' Probably doing so will alter line breaks throughout the
@@ -45,13 +67,98 @@ breaklinks]{hyperref}
 %%% is uncommented.
 %\usepackage[standard-baselineskip]{cmbright}
 
+%%% Serif Fonts! -- Uncomment all in Sans Serif Fonts (below) to use!
+%% Use `mathptmx` to mimic Times New Roman (with math support).
+%\usepackage{mathptmx}
+
+%%% Sans Serif Fonts! -- Uncomment all in Serif Fonts (above) to use!
+%% Use `cmbright` to mimic Arial.
+%% This will probably alter line breaks throughout the document...
+%\usepackage{cmbright}
+%% If line spacing is funky with the above cmbright, use this version:
+%\usepackage[standard-baselineskip]{cmbright}
+%% Use `helvet` for Helvetica. 
+%%  Note: the `helvet` font Greek support is odd.
+%\usepackage{helvet}
+%% Use `tgheros` to mimic Helvetica. It has better Greek support!
+\usepackage{tgheros}
+%% Set all math to sans serif font
+\usepackage{sansmathfonts}
+%% Force to sans serif and redefine bold to fix TeX 2020 update
+\renewcommand{\familydefault}{\sfdefault}
+\DeclareFontSeriesDefault[sf]{bf}{bx}
+
+%%% Adding Code Blocks -- Uncomment if you're using computer code
+%%% NOTE: You need pre-approval from the Graduate Reader to use syntax 
+%%% highlighting in your document!!!!
+\usepackage{sourcecodepro}
+\usepackage{minted}
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
+
+
+%%%-------------------------- START Adding additional packages here!
+
+%%% For chemistry dissertations, use ACS Citation Style
+%\usepackage[biblabel=period, doi=true, articletitle=true]{achemso}
+
+%%% Use `siunitx` for SI Units -- need `detect-all` option for sans serif
+%\usepackage[separate-uncertainty = true,
+%   multi-part-units = single,
+%   range-units = single,
+%   range-phrase={--}, detect-all,
+%   table-number-alignment = center]{siunitx}
+%%% Add new commands for SIunitx
+%\DeclareSIUnit{\calorie}{\text {cal}}
+%\DeclareSIUnit{\kcal}{\kilo\calorie}
+%\DeclareSIUnit{\inverse}{^{-1}}
+%%% Add angstrom, since newer version removed it
+%\DeclareSIUnit{\angstrom}{\text {Å}}
+%%% Add Molar
+%\DeclareSIUnit\Molar{\textsc{m}}
+%%% Redefine percent sign without space
+%\catcode`\%=12\relax
+%\DeclareSIUnit[number-unit-product = ]\percent{%}
+%\catcode`\%=14\relax
+
+%%% Use for [H] figure option
+\usepackage{float}
+%%% Use to hide appendix labels
+\usepackage{ifthen}
+
+%%% For URLs to look like text and break when necessary
+\usepackage{xurl}
+\urlstyle{same}
+
+%%%-------------------------- END Adding additional packages here!
+
+%%% Don't hyphenate words
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+%%% Save `hyperref` for end (because it doesn't play well with others.
+%%% `doi`, `bookmark`, and `cleveref` must be loaded after it (if used)!
+%%% Instead of `allcolors=black`, you can use `allcolors=untgreen` to have 
+%%% green hyperlinks throughout (if preferred).
+\usepackage[colorlinks, linktocpage, 
+allcolors=black,% Changes link colors
+linktoc=all,% This option links across the entire ToC line
+breaklinks]{hyperref}
+
+%%% Make DOIs hyperlinkable, but without the teletypefont shape
+\usepackage{doi}
+\renewcommand{\doitext}{}
+%%% Allow Table of Contents PDF bookmarks
+\usepackage[depth=subsubsection]{bookmark}
+
 %%% Cleveref plays nicely with amsthm and likes to be the last package to be
 %%% loaded
 \usepackage[capitalise, nameinlink]{cleveref}
 
 %%%%%%%%%%% preamble stuff ...
 %%% This loads the main style file.
-\input{UNTdissertation.sty}
+\input{0-frontmatter/UNTdissertation.sty}
 
 %%% If you need the hypcap package, uncomment the following line
 %\usepackage[all]{hypcap}
@@ -68,7 +175,13 @@ breaklinks]{hyperref}
 %\newcommand\myrefbibname{BIBLIOGRAPHY}
 
 %%% Make your own macros and put them in macros.tex.
-\input{macros}
+\input{0-frontmatter/macros}
+
+%%% Set-up PDF Metadata using defined macros (assumes hyperref loaded)
+\hypersetup{pdfinfo={
+Title={\DissTitleAbstract},
+Author={\MyName}
+}}
 
 %%% Uncomment the following line and add the basename of the chapter file
 %%% (for example chapter1 for chapter1.tex) to have LaTeX process only
@@ -76,6 +189,11 @@ breaklinks]{hyperref}
 %%% had slower processers and less memory, but if you are running tex on
 %%% your smartphone, it might come in handy
 %\includeonly{chapter1}
+
+%%% This sets up a new command, \tocless, to be used before specific
+%%% sections so that they don't show up in the table of contents.
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,10 +204,10 @@ breaklinks]{hyperref}
 \frontmatter
 
 %%% Things for the title page ...
-\title{Sample UNT Dissertation with \\ a two line title} 
-\author{Big Matt D., A.B., CD, EF} 
+\title{\DissTitleUpper}
+\author{\MyNameDegrees} 
 \degree{Dissertation Prepared for the Degree of\\ DOCTOR OF PHILOSOPHY}
-\degreedate{May 2005}
+\degreedate{\CRDate}
 \approved{Wild Bill Hickock, Major Professor\\
   Calamity Jane, Minor Professor\\
   Billy the Kid, Committee Member and\\
@@ -100,20 +218,40 @@ breaklinks]{hyperref}
 %%% This makes the title page ...
 \maketitle
 
+%%% Note: The graduate school adds the final abstract, not you!
+
 %%% The copyright page ... copyright.tex, comment this out if you don't want
 %%% a copyright page
-\include{copyright}
+\include{0-frontmatter/copyright}
 
 %%% An acknowledgments page (called acknowledgments.tex), this can be
 %%% commented out if there are no acknowledgments
-\include{acknowledgments}
+%%% Add a phantom section to fix ToC.
+\clearpage\phantomsection
+\include{0-frontmatter/acknowledgments}
 
-%%% This makes the table of contents. 
+%%% Makes the table of contents and adds it to PDF Bookmarks
+\hypertarget{toc}{}
+\bookmark[level=chapter,dest=toc]{\contentsname}
 \tableofcontents
 
-%%% Uncomment the following to generate lists of tables or figures. 
+%%% Uncomment the following to generate lists of tables or figures.
+%% List of Figures
+\clearpage\phantomsection
+\label{List of Figures}
+\listoffigures
+\newpage
+
+%% List of Tables
+\phantomsection
+\label{List of Tables}
 \listoftables
-%\listoffigures
+\newpage
+%%% End LOT/LOF
+
+%% Add list of abbreviations
+\phantomsection
+\include{0-frontmatter/abbreviations}
 
 %%% Now for the actual dissertation -- the mainmatter.
 \mainmatter
@@ -125,33 +263,60 @@ breaklinks]{hyperref}
 \allowdisplaybreaks
   
 %%% Include the chapters here.
-\include{chapter1}
-\include{chapter2}
-%\include{chapter3}
-%\include{chapter4}
+\include{2-chapters/chapter1}
+\include{2-chapters/chapter2}
+\include{2-chapters/chapter3}
+%\include{2-chapters/chapter4}
+%\include{2-chapters/chapter5}
+%%%
 
-%%% Uncomment if there are appendices. This command sets some things up in
-%%% preparation for the actual appendices.
+%%%-------------------------- APPENDIX BLOCK
+%%% Comment out this block if there are no appendices
+
+%%% Comment if there are not appendices.
+%%% These lines remove appendix figures and tables from list of tables
+%%% and list of figures.
+\let\svaddcontentsline\addcontentsline
+\renewcommand\addcontentsline[3]{%
+  \ifthenelse{\equal{#1}{lof}}{}%
+  {\ifthenelse{\equal{#1}{lot}}{}{\svaddcontentsline{#1}{#2}{#3}}}}
+
+%%% This command sets some things up in preparation for the actual appendices.
 \appendix
+
+%%% This properly sets figure numbering in appendices (i.e. Figure A.1)
+\renewcommand\thefigure{\thechapter.\arabic{figure}}
+
+%%% This prevents subsections in appendices appearing in the table of contents.
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 
 %%% Include appendix "chapters" here. A single appendix should start with
 %%% \appchapter*{TITLE} rather than \chapter{TITLE}. This supresses the 
 %%% numbering (if there is only one appendix it doesn't rate a number). If
 %%% there is more than one appendix, use \appchapter to get numbered
 %%% appendices (A, B, C, ...).  
-\include{appendix}
+\include{2-chapters/appendix}
+\include{2-chapters/appendix-code}
+%\include{2-chapters/A2-app}
+%\include{2-chapters/A3-app}
+
+%%%-------------------------- END APPENDIX BLOCK
 
 %%% This starts the backmatter, which so far is only the bibliography.
 \backmatter
 
 %%% This modifies some bits of the amsplain bibliography style to conform
 %%% with UNT/TGS requirements.
-\bibliographystyle{UNTamsplain}
+%%% Comment this out for ACS style.
+\bibliographystyle{0-frontmatter/UNTamsplain}
 
 %%% Include the .bib file containing the bibliographic information (in
 %%% BiBTeX format...). ``bibliography.bib'' is a descriptive name for a
 %%% bibliography file in BiBTeX format.
+%%% Fix the bookmark by clearing the page.
+\clearpage\phantomsection
 \bibliography{bibliography}
+%\bibliography{references.bib}
 
 %%% That's all folks!
 \end{document}

@@ -7,7 +7,8 @@
 
 The information and style files in this repository should be enough to get
 started preparing a thesis or dissertation that conforms to the requirements
-in the UNT [Dissertation and Thesis Manual] using LaTex.
+in the UNT [Dissertation and Thesis Manual](https://tgs.unt.edu/thesis-manual)
+using LaTex.
 Please note that information regarding UNT dissertations and theses found in
 this repository are NOT official.
 It is provided solely as an aid for students preparing dissertations or
@@ -93,6 +94,10 @@ the graphics in the non-vanilla example.
 feature in the `hyperref` package.
 - Jun-deh Wu (PhD 2012) found a `List of Figures/List of Tables` bug in
 `amscls`.
+- Alice Walker (PhD 2017) addressed the issue of figures in the appendices
+appearing in the Table of Contents.
+- Emmett Leddin (PhD 2022) created the directory tree, fixed bookmarking issues,
+and created the `minted` example.
 
 Suggestions for additions, modifications, and/or improvements to the style
 files, as well as helpful hints for future users, are always welcome!

@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%                               Appendix Chapter                               %
+%                                 A B C 1 2 3                                  %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\appchapter{A B C 1 2 3}
+\appchapter{\MyChapTwo}\label{appchap-two}
+
+%\begin{figure}
+%    \includegraphics[width=\textwidth]{3-images/2-123/ABC}
+%    \caption{ABC.}
+%	\label{fig:A2-ABC}
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+In this appendix we have a couple of fancyish diagrams and a floating table.
+\[
+\xymatrix{A\otimes B \ar[r]^{\id\otimes p_B} \ar[d]_{ p_A\otimes \id} &
+  A\otimes \BBQ_X \ar[r]^{m_2} \ar[d]^{p_A\otimes \id} &A
+  \ar[dd] ^{p_A} \\
+  \BBQ_X\otimes B\ar[r]_{\id\otimes p_B} \ar[d]_{m_1} &\BBQ_X
+  \otimes \BBQ_X \ar[rd]_m & \\
+  B\ar[rr]_{p_B} &&\BBQ_X}
+\]
+
+\[
+\xymatrix{R\xi_! \xi^! \BBQ_Y \otimes \BBQ_Y \ar[r]^-{\pr_\xi} \ar[dd]
+  _{\epsilon_\xi^! \otimes \id}& R\xi_!( \xi^!
+  \BBQ_Y \otimes \xi^* \BBQ_Y ) \ar[d]^{R\xi_!(\id\otimes \alpha_\xi)} \\
+  & R\xi_!( \xi^! \BBQ_Y \otimes \BBQ_X ) \ar[d]
+  ^{\Phi_\xi\inverse (m_2)} \\
+  \BBQ_Y \otimes \BBQ_Y \ar[r]_-{m} &\BBQ_Y }
+\]
+
+
+\begin{table}[h!tb]
+  \caption{Roots and root vectors for $\fso_{2n+1}$}\label{atab:soodd}
+  \begin{tabular}{c|cccccccccc}
+    % \hline
+    $W$ & $W_I$ \\
+    \hline
+    \hline
+    $E_6$ & $A_2^2$ & $A_1 A_2^2$ & $A_5$ \\
+    $E_7$ &  $(A_1^3)'$ & $A_1^3 A_2$ & $A_5'$ & $A_1 A_2
+    A_3$ & $A_2 A_4$ & $A_1 A_5$ &  $A_6$ & $A_1 D_5$ & $D_6$ &
+    $E_6$ \\ 
+    $E_8$ &  $A_1 A_2 A_4$ & $A_3 A_4$ & $A_1 A_6$ & $A_7$ & $A_2 D_5$ &
+    $D_7$ & $A_1 E_6$ & $E_7$ \\ 
+    $F_4$ &  $A_2$ & $\widetilde A_2$ & $C_3$ & $B_3$ & $A_1 \widetilde
+    A_2$ & $\widetilde A_1 A_2$  \\ 
+    $G_2$ & $A_1$ & $\widetilde A_1$ \\
+    $H_3$ & $A_1A_1$ & $A_2$ &$I_2(5)$ \\
+    $H_4$ & $A_1A_2$ & $A_3$ &$A_1I_2(5)$ &$H_3$\\
+  \end{tabular}
+\end{table}
+
+Equation and theorem numbering in an appendix will almost certainly be
+funky.
+

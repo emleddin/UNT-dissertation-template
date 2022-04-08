@@ -1,0 +1,263 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Macros for Setting Up Document  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Define Author Name
+\newcommand{\MyName}{Scrappy Eagle}
+\newcommand{\MyNameDegrees}{Scrappy Eagle, B.A., B.S}
+
+%%% Define Dissertation Title (Title Case)
+%% Use `\\` to specify a line break in `\DissTitle`
+\newcommand{\DissTitle}{Sample UNT Dissertation with \\ A Two Line Title}
+%% \DisTitleAbstract should have no linebreaks
+\newcommand{\DissTitleAbstract}{Sample UNT Dissertation with A Two Line Title}
+
+%%% For the title page, set it to uppercase because the .sty file can't 
+%%% deal with a variable=$
+\newcommand{\DissTitleUpper}{\MakeUppercase{\DissTitle}}
+
+%%% Define Copyright Info -- month and year of graduation
+\newcommand{\CRMonth}{May}
+\newcommand{\CRYear}{2022}
+\newcommand{\CRDate}{\CRMonth{} \CRYear}
+
+%%% Define Chapter Titles (don't use numbers in LaTeX variables)
+%%% TGS style has them uppercase in the Bookmarks and to match that 
+%%% they'll need to be uppercase here since \uppercase{} won't work
+\newcommand{\AckChap}{ACKNOWLEDGMENTS}
+\newcommand{\AbbChap}{LIST OF ABBREVIATIONS}
+\newcommand{\MyChapOne}{INTRODUCTION}
+\newcommand{\MyChapTwo}{IT'S EASY AS 1 2 3}
+\newcommand{\MyChapThree}{AS SIMPLE AS DO RE MI}
+%\newcommand{\MyChapThree}{}
+%\newcommand{\MyChapFour}{}
+%\newcommand{\MyChapFive}{}
+%\newcommand{\MyChapSix}{}
+%\newcommand{\MyChapSeven}{}
+%\newcommand{\MyChapEight}{}
+%\newcommand{\MyChapNine}{}
+%\newcommand{\MyChapTen}{}
+
+%%% Define Appendix Chapter Titles (if different from Chapter Titles)
+%%% TGS style has them uppercase in the Bookmarks and to match that 
+%%% they'll need to be uppercase here since \uppercase{} won't work
+\newcommand{\MyAppChap}{A B C 1 2 3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Macros for Figure and Table References %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Fix figure captions: \FC{a}
+%\newcommand{\FC}[1]{(\lowercase{#1})}  % (a)
+\newcommand{\FC}[1]{(\uppercase{#1})} % (A)
+%\newcommand{\FC}[1]{\lowercase{#1})}  % a)
+%\newcommand{\FC}[1]{\uppercase{#1})}  % A)
+
+%% Make a command to standardize Figure references: \Fref{fig:123}
+\newcommand{\Fref}[1]{Figure~\ref{#1}} % Figure 1
+
+%% Make a command to standardize Multi Figure references: \MFref{fig:123}
+\newcommand{\MFref}[1]{Figures~\ref{#1}} % Figures 1
+
+%% Make a command to standardize Multi Figure references 
+%%  when first has subfigures: \MFsref{fig:123}{A}
+\newcommand{\MFsref}[2]{Figures~\ref{#1}\uppercase{#2}} % Figures 1A
+%\newcommand{\MFsref}[2]{Figures~\ref{#1}\lowercase{#2}} % Figures 1a
+
+%% Make a command for to standardize subfigure references: \Fsref{fig:123}{A}
+\newcommand{\Fsref}[2]{Figure~\ref{#1}\uppercase{#2}} % Figure 1A
+%\newcommand{\Fsref}[2]{Figure~\ref{#1}\lowercase{#2}} % Figure 1a
+
+%% Make a command for to standardize subfigure references: \Fsr{A}
+\newcommand{\Fsr}[1]{\uppercase{#1}} % A
+%\newcommand{\Fsr}[1]{\lowercase{#1}} % a
+
+%% Make a command to standardize Table references
+\newcommand{\Tref}[1]{Table~\ref{#1}} % Table 1
+
+%% Make a command to standardize Multi Table references
+\newcommand{\MTref}[1]{Tables~\ref{#1}} % Tables 1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Macros for New Symbols  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Add double prime
+%\newcommand{\textdoubleprime}{\textprime\textprime}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Macros for Greek Letters  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Create Greek Letters based on font
+%%% This way, if you want to change to Text Greek later, you don't have to 
+%%%  fix every single chapter...
+%% `textgreek` version
+%\newcommand{\Tkappa}{\textkappa}
+%% Math version
+%\newcommand{\Talpha}{$\alpha$}
+%\newcommand{\Tbeta}{$\beta$}
+%\newcommand{\Tgamma}{$\gamma$}
+%\newcommand{\Tdelta}{$\delta$}
+%\newcommand{\Tepsilon}{$\epsilon$}
+%\newcommand{\Tzeta}{$\zeta$}
+%\newcommand{\Teta}{$\eta$}
+%\newcommand{\Ttheta}{$\theta$}
+%\newcommand{\Tiota}{$\iota$}
+%\newcommand{\Tkappa}{$\kappa$}
+%\newcommand{\Tlambda}{$\lambda$}
+%\newcommand{\Tmu}{$\mu$}
+%\newcommand{\Tnu}{$\nu$}
+%\newcommand{\Txi}{$\xi$}
+%\newcommand{\Tomicron}{$\omicron$}
+%\newcommand{\Tpi}{$\pi$}
+%\newcommand{\Trho}{$\rho$}
+%\newcommand{\Tsigma}{$\sigma$}
+%\newcommand{\Ttau}{$\tau$}
+%\newcommand{\Tupsilon}{$\upsilon$}
+%\newcommand{\Tphi}{$\phi$}
+%\newcommand{\Tchi}{$\chi$}
+%\newcommand{\Tomega}{$\omega$}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Additional Math Macros of Interest  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Any of these that are uncommented are for the example to be 
+%%% rendered. They are not required!!!
+
+%%%------ Alphabets
+\newcommand\CA{{\mathcal A}} 
+\newcommand\CB{{\mathcal B}} 
+\newcommand\CC{{\mathcal C}}
+\newcommand\CD{{\mathcal D}} 
+\newcommand\CE{{\mathcal E}}
+\newcommand\CF{{\mathcal F}}
+\newcommand\CH{{\mathcal H}} 
+\newcommand\CL{{\mathcal L}}
+\newcommand\CN{{\mathcal N}} 
+\newcommand\CO{{\mathcal O}}
+\newcommand\CP{{\mathcal P}}
+\newcommand\CQ{{\mathcal Q}}
+\newcommand\CS{{\mathcal S}}
+\newcommand\CT{{\mathcal T}}
+
+\newcommand\fb{{\mathfrak b}}
+\newcommand\fg{{\mathfrak g}}
+\newcommand\fp{{\mathfrak p}}
+\newcommand\fq{{\mathfrak q}}
+\newcommand\fu{{\mathfrak u}} 
+\newcommand\fl{{\mathfrak l}}
+\newcommand\fm{{\mathfrak m}}
+\newcommand\ft{{\mathfrak t}}
+
+\newcommand\BBC{{\mathbb C}}
+\newcommand\BBD{{\mathbb D}}
+\newcommand\BBF{{\mathbb F}}
+\newcommand\BBN{{\mathbb N}}
+\newcommand\BBP{{\mathbb P}}
+\newcommand\BBQ{{\mathbb Q}}
+\newcommand\BBR{{\mathbb R}}
+\newcommand\BBZ{{\mathbb Z}}
+
+%%%------ Operators
+\newcommand\Ad{{\operatorname{Ad}}}
+\newcommand\alg{{\operatorname{alg}}}
+\newcommand\Aut{{\operatorname{Aut}}} 
+\newcommand\btimes{\boxtimes}
+\newcommand\btimesL{{\overset{L}{\boxtimes}}}
+\newcommand\chk{^{\vee}}
+\newcommand\CHom{{\mathcal{H}om}}
+\newcommand\codim{{\operatorname{codim}}}
+\newcommand\Ext{{\operatorname{Ext}}}
+\newcommand\End{{\operatorname{End}}}
+\newcommand\GL{{\operatorname{GL}}}
+\newcommand\Hom{{\operatorname{Hom}}}
+\newcommand\ind{{\operatorname{ind}}}
+\newcommand\Ind{\operatorname{Ind}}
+\newcommand\Lie{{\operatorname{Lie}}}
+\newcommand\Mor{{\operatorname{Mor}}}
+\newcommand\op{{^{\operatorname{op}}}}
+%\newcommand\otimesL{{{\overset{L}{\otimes}}}}
+
+\newcommand\ad{\operatorname{ad}}
+%\newcommand\alt{{\operatorname{Alt}}}
+%\newcommand\cf{\operatorname{cf}}
+%\newcommand\Cl{\operatorname{Cl}}
+\newcommand\diag[1]{{\operatorname{diag}(#1)}}
+%\newcommand\End{{\operatorname{End}}}
+%\newcommand\gl{{\operatorname{gl}}}
+%\newcommand\GL{{\operatorname{GL}}}
+%\newcommand\Hom{{\operatorname{Hom}}}
+\newcommand\height{{\operatorname{ht}}}
+%\newcommand\id{\operatorname{id}}
+%\newcommand\ind{{\operatorname{ind}}}
+%\newcommand\im{\operatorname{im}}
+%\newcommand\nll{\operatorname{null}}
+%\newcommand\rank{\operatorname{rank}}
+%\newcommand\res{\operatorname{res}}
+%\newcommand\SL{{\operatorname{SL}}}
+%\newcommand\spn{\operatorname{span}}
+%\newcommand\supp{\operatorname{sup}}
+\newcommand\trace{{\operatorname{tr}}}
+
+
+%%%------ General
+\newcommand\inverse{^{-1}}
+\renewcommand\th{{^{\text{th}}}}
+
+\newcommand\bc{{\operatorname{bc}}}
+\newcommand{\Crit}{\textrm{Crit}}
+\newcommand{\dist}{{\mathrm{dist}}}
+\newcommand\Dbc{{D^b_c}}
+\newcommand{\HD}{{\mathrm{HD}}}
+\newcommand\id{{id}}
+\newcommand{\im}{\textrm{Im }}
+\newcommand{\Int}{\text{{\rm Int}}}
+\newcommand\jM{j_{ {}_ M}}
+\newcommand\jN{j_{ {}_ N}}
+\newcommand\nat{{\operatorname{nat}}}
+\newcommand\nuM{\nu_{ {}_M}}
+\newcommand\pr{{\operatorname{pr}}}
+\newcommand{\re}{\textrm{Re }}
+\newcommand{\sms}{\setminus}
+
+%\newcommand\fo{\mathfrak {ol}}
+\newcommand\fgl{\mathfrak {gl}}
+\newcommand\fsl{\mathfrak {sl}}
+\newcommand\fso{\mathfrak {so}}
+\newcommand\fsp{\mathfrak {sp}}
+
+
+%%%------ Misc
+%\newcommand\bd[1]{{\medskip\noindent\bf #1:}}
+%\newcommand\CCper{\mathcal C_{2\pi}(\BBR)}
+%\newcommand\dop{D^{\text{op}}}
+%\newcommand\ds{\displaystyle}
+%\newcommand\ee[2]{{e_{#1,#2}}}\newcommand\inverse{^{-1}}
+%\newcommand\erm{{\End_R(M)}}
+%\newcommand\edm{{\End_D(M)}}
+%\newcommand\ermn{{\End_R(M^n)}}
+%\newcommand\fp{{\mathbb F_p}}
+%\renewcommand\ll{\ell}
+%\newcommand\mor{{\operatorname{Mor}}}
+%\newcommand\nbar{{\bar n}}
+%\newcommand\nseq[2]{#1_1,\dots,#1_{#2}}
+%\newcommand\obj{{\operatorname{Obj}}}
+%\newcommand\pra{R_{\alpha_1}\times\dots\times R_{\alpha_n}}
+%\newcommand\rr[2]{{r_{#1,#2}}}
+%\newcommand\rai{R_{\alpha_i}}
+%\newcommand\raj{R_{\alpha_j}}
+%\newcommand\speq{\supseteq}
+%\newcommand\sop{S^{\text{op}}}
+%\newcommand\ssum[1]{#1_1+\dots+#1_n}
+%\newcommand\stepzero{{\textsc{Step 0}}}
+%\newcommand\stepone{{\textsc{Step 1}}}
+%\newcommand\steptwo{{\textsc{Step 2}}}
+%\newcommand\stepthree{{\textsc{Step 3}}}
+
+\newcommand\seq[1]{#1_1,\dots,#1_n}
+%%\renewcommand\ft{{\mathfrak t}}
+%\newcommand\tseq[1]{{ ${#1}_1$, \dots, ${#1}_{n}$ }}
+%\renewcommand\th{^{\text{th}}}
+%\newcommand\transpose[1]{{{#1}^T}}

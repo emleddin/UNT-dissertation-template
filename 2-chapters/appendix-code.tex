@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%                               Appendix Chapter                               %
+%                                  Code Ex                                     %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\appchapter{AS SIMPLE AS DO RE MI}
+\appchapter{\MyChapThree}\label{appchap-three}
+
+%\begin{figure}
+%    \includegraphics[width=\textwidth]{3-images/3-DRM/ABC}
+%    \caption{ABC.}
+%	\label{fig:A3-ABC}
+%\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{longlisting}
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+%bgcolor=codegray,
+baselinestretch=1, % Linespacing
+fontsize=\scriptsize,
+style=allylight
+%linenos
+]
+{python}
+def testing_python(x, y):
+    print(x, " is the new", y, ".")
+    def fun():
+        print("Functions are F-U-N!")
+    fun()
+
+testing_python("Fun", "function")
+\end{minted}
+\caption{A Python function with syntax highlighting.}
+\label{lst:py-func}
+\end{longlisting}

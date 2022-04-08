@@ -1,0 +1,42 @@
+%% This does NOT go into the final LaTeX document!!! 
+%% The graduate school does it for you!!!
+
+\documentclass[12pt, openany]{amsbook}
+
+%% Change the font -- use whatever font setup you had in `mydissertation.tex`
+%% Use `tgheros` to mimic Helvetica. It has better Greek support
+\usepackage{tgheros}
+%% Force to sans serif
+\renewcommand{\familydefault}{\sfdefault}
+
+%% Add highlighting so you know what to fix
+\usepackage{color,soul}
+
+%% Add in reference package last so you don't break everything
+\usepackage[capitalise, nameinlink]{cleveref}
+
+%% Don't hyphenate words
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+%%% This loads the main style file.
+\input{../0-frontmatter/UNTdissertation.sty}
+
+%%% Make your own macros and put them in macros.tex.
+\input{../0-frontmatter/macros}
+\thispagestyle{empty}
+
+\begin{document}
+
+%%% The number of pages is how many numbered pages are in the PDF (not total pages)
+%%% Number of tables/figures are based off the List of Tables and List of Figures
+
+Eagle, Scrappy. \emph{\DissTitleAbstract}. \\
+Doctor of Philosophy (Major), \CRDate, \hl{XX} pp., \hl{XX} tables, \hl{XX} figures, \hl{XX} appendices, \hl{XX} numbered references.
+
+This is an abstract for the best dissertation ever!
+It does not go into your final document, but you can upload it to Vireo separately.
+
+\end{document}
