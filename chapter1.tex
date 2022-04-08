@@ -1,0 +1,373 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{IT'S EASY AS 1 2 3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this chapter root systems and Chevalley bases for specific matrix
+representations of some of the classical, simple, complex Lie algebras are
+constructed. Each classical, simple, complex Lie algebra is a Lie subalgebra
+of $\fgl_m(\BBC)$ for some $m$. The subalgebra of diagonal matrices in such
+a Lie algebra will be denoted by $H$. It turns out that for the matrix
+representations considered, $H$ is a maximal toral subalgebra.
+
+It's possible to refer to displayed equations at any time, even before they
+appear. For example \cref{eq:bigmat} is defined somewere below. This is not
+good form, but sometimes it's handy.
+
+For positive integers $i$, $j$, and $n$ with $1\leq i,j\leq n$, let
+$e_{i,j}$ denotes the square matrix whose only non-zero entry is a $1$ in
+row $i$ and column $j$.  Denote the $n\times n$ diagonal matrix with entries
+$a_1$, \dots, $a_n$ by $\diag{ \seq a}$. Then
+\[
+\diag{ \seq a}=
+\begin{bmatrix}
+  a_1&0&&&\dots&0 \\ 0&a_2&&&\dots&0 \\
+  \vdots&&\ddots&&&\vdots \\ 0&&\dots&&a_{n-1}& \\ 0&&\dots&&0 &a_n
+\end{bmatrix}
+= \sum_{i=1}^n a_i e_{i,i}.
+\]
+
+Clearly the set $\{\, e_{i,i}\mid i\leq i\leq n\,\}$ is a basis of the
+vector space of diagonal matrices. Suppose $h=\diag{\seq a}$ and $1\leq
+i,j\leq n$, then
+\begin{align*} 
+  [h, e_{i,j}] &= he_{i,j} -e_{i,j} h\\
+  &= \sum_{k=1}^n a_k\,e_{k,k} e_{i,j} -\sum_{k=1}^n a_k\, e_{i,j}e_{k,k}\\
+  &= \sum_{k=1}^n a_k\, \delta_{k,i}e_{k,j} - \sum_{k=1}^n \, a_k
+  \delta_{j,k} e_{i,k} \\
+  &= a_i\, e_{i,j} - a_j\, e_{i,j}\\
+  &= (a_i-a_j)\, e_{i,j}.
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Type \texorpdfstring{$B_n$}{Bn}, the Odd-dimensional, Orthogonal
+  Lie Algebras}
+
+The odd-dimensional, orthogonal Lie algebra $\fso_{2n+1}(\BBC)$, or simply
+$\fso_{2n+1}$, is the set of all matrices $X$ in $\fgl_{2n}(\BBC)$ such that
+\[
+JX= -X^t J
+\]
+where $J= \left[\begin{smallmatrix} 1&0&0\\ 0 &0&I_n\\ 0&I_n
+    &0\end{smallmatrix} \right]$.  
+
+Suppose $X=\left[\begin{smallmatrix} a&s&t\\ u&A&B\\ v&C&
+    D \end{smallmatrix} \right]$, where $a$ is a complex number, $s,t,u,v$
+are vectors with $n$ components, and $A, B, C, D$ are $n\times n$
+matrices. Then $JX= -X^t J$ if and only if
+\[
+\begin{bmatrix}
+  1&0&0\\ 0&0&I_n\\ 0&I_n& 0
+\end{bmatrix}
+\begin{bmatrix}
+  a&s&t\\ u&A&B\\ v&C& D
+\end{bmatrix}
+=
+\begin{bmatrix}
+  -a&-u^t&-v^t\\-s^t&-A^t&-C^t\\ -t^t&-B^t&-D^t
+\end{bmatrix}
+\begin{bmatrix}
+  1&0&0\\ 0&0&I_n\\ 0&I_n& 0
+\end{bmatrix},
+\]
+which is if and only if
+\[
+a=0\quad u=-t^t \quad v=-s^t\quad D=-A^t,\quad B=-B^t,\quad\text{and} \quad
+C=-C^t.
+\]
+If the $i\th$ entry of $s$ is $s_i$, $i\th$ entry of $t$ is $t_i$, the
+$(i,j)$ entry of $A$ is $a_{i,j}$, the $(i,j)$ entry of $B$ is $b_{i,j}$,
+and the $(i,j)$ entry of $C$ is $c_{i,j}$, then $\left[\begin{smallmatrix}
+    a&s&t\\ u&A&B\\ v&C& D \end{smallmatrix} \right]$ is in $\fso_{2n+1}$ if
+and only if
+\begin{equation}
+  \label{eq:bigmat}
+  \begin{bmatrix}
+    a&s&t\\ u&A&B\\ v&C& D
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0&s_1&s_2&\dots&s_n &t_1&t_2&\dots&t_n\\
+    -t_1& a_{1,1}&a_{1,2}&\dots&a_{1,n}&0&b_{1,2}&\dots&b_{1,n} \\
+    -t_2& a_{2,1}&a_{2,2}&\dots&a_{2,n}&-b_{2,1}&0&\dots&b_{2,n} \\
+    \vdots&\vdots&\vdots&\ddots&\vdots&\vdots&\vdots&\ddots&\vdots \\
+    -t_n& a_{n,1}&a_{n,2}&\dots&a_{n,n}&-b_{n,1}&-b_{n,2}&\dots&0 \\
+    -s_1& 0&c_{1,2}&\dots&c_{1,n}&-a_{1,1}&-a_{n,2}&\dots&-a_{n,1} \\
+    -s_2& -c_{2,1}&0&\dots&c_{1,n}&-a_{2,1}&-a_{2,2}&\dots&-a_{2,n} \\
+    \vdots & \vdots&\vdots&\ddots&\vdots&\vdots&\vdots&\ddots&\vdots \\
+    -s_n& -c_{n,1}&-c_{n,2}&\dots&0&-a_{1,n}&-a_{n,2}&\dots&-a_{n,n}
+  \end{bmatrix}.
+\end{equation}
+
+For $1\leq i\leq n$, define $x_i$ in $H^*$ by
+\[
+x_i(h)= a_i\quad\text{when}\quad h=\diag{0,\seq a, \seq{-a}}.
+\]
+Then $x_i(h)$ is the coefficient of $d_i$ when $h$ is expressed as a linear
+combination of vectors in $\CB_H$.
+
+The set
+\begin{multline*}
+  \CB=\CB_H \cup \{\, e_{1, j+1}-e_{n+j+1,1}\mid 1\leq j\leq n\,\} \cup \{\,
+  e_{1, n+j+1}-e_{j+1,1}\mid 1\leq j\leq n\,\} \\
+  \cup \{\, e_{i+1,j+1} -e_{n+j+1, n+i+1} \mid 1\leq i\ne j\leq n\,\} \cup
+  \{\, e_{i+1,n+j+1} -e_{j+1, n+i+1} \mid 1\leq i< j\leq n\,\}  \\
+  \cup \{\, e_{n+i+1,j+1} -e_{n+j+1, i+1}\mid 1\leq i< j\leq n\,\}
+\end{multline*}
+is a basis of $\fso_{2n+1}$. In particular, $\dim \fso_{2n+1}=
+3n+n^2-n+2\binom n2= 2n^2+n$.
+
+\begin{proposition}
+  The set $\CB\setminus \CB_H$ consists of root vectors.
+\end{proposition}
+
+\begin{proof}
+  This is proved by direct computation. There are five cases.
+
+  Suppose that $h=\diag{0,\seq a, \seq{-a}}$ is in $H$.
+
+  Consider $e_{1, j+1}-e_{n+j+1,1}$ where $1\leq j\leq n$. Then
+  \begin{align*}
+    [h, e_{1, j+1}-e_{n+j+1,1}]& =[h,e_{1,j+1}] -[h,e_{n+j+1, 1}]\\
+    &= -a_j\, e_{1,j+1} -a_{j} \, e_{n+j+1, 1} \\
+    &= (-a_j)\, (e_{1, j+1}-e_{n+j+1,1}) \\
+    &= (-x_j)(h) \, (e_{1, j+1}-e_{n+j+1,1}).
+  \end{align*}
+  Thus, $e_{1, j+1}-e_{n+j+1,1}$ is a root vector. The corresponding root is
+  the linear function $-x_j$ in $H^*$.
+
+  Consider $e_{i+1,j+1} -e_{n+j+1, n+i+1}$ where $1\leq i\ne j\leq n$. Then
+  \begin{align*}
+    [h, e_{i+1,j+1} -e_{n+j+1, n+i+1}]& =[h,e_{i+1,j+1}] -[h,e_{n+j+1,
+      n+i+1}]\\
+    &= (a_i-a_j)\, e_{i+1,j+1} - (-a_{j} + a_{i}) \, e_{n+j+1, n+i+1} \\
+    &= (a_i-a_j)\, (e_{i+1,j+1} -e_{n+j+1, n+i+1}) \\
+    &= (x_i-x_j)(h) \, (e_{i+1,j+1} -e_{n+j+1, n+i+1}).
+  \end{align*}
+  Thus, $e_{i+1,j+1} -e_{n+j+1, n+i+1}$ is a root vector. The corresponding
+  root is the linear function $x_i-x_j$ in $H^*$.
+
+  The other two cases are similar: $e_{1,n+j+1} -e_{j+1, 1}$ is a root
+  vector and the corresponding root is the linear function $x_j$ in $H^*$;
+  $e_{n+i+1,j+1} -e_{j+1, n+i+1}$ is a root vector and the corresponding
+  root is the linear function $-x_i-x_j$ in $H^*$.
+
+  The computations above are summarized in \cref{tab:so} and
+  \cref{tab:soodd}. 
+
+  This table is typeset as a float that is strongly encouraged to come next
+  if at all possible.
+\end{proof}
+
+
+\begin{table}[h!tb]
+  \small \arraycolsep10pt
+  \renewcommand{\arraystretch}{1.3}
+  \begin{equation*}
+    \begin{array}{l|cc}
+      i,\ j &\alpha &e_\alpha\\\hline
+      1\leq j\leq n&-x_j & e_{1,j+1} -e_{n+j+1, 1}\\
+      1\leq j\leq n&x_j & e_{1,n+j+1} -e_{j+1, 1}\\
+      1\leq i\ne j\leq n&x_i-x_j &  e_{i+1,j+1} -e_{n+j+1, n+i+1} \\
+      1\leq i< j\leq n&x_i+x_j & e_{i+1,n+j+1} -e_{j+1, n+i+1} \\ 
+      1\leq i< j\leq n&-x_i-x_j & e_{n+i+1,j+1} -e_{j+1, n+i+1}
+    \end{array}  
+  \end{equation*}
+  \caption{An ad hoc table not set as a float}\label{tab:so}
+\end{table}
+
+
+\renewcommand{\arraystretch}{1.1}
+\begin{table}[h!tb]
+  \centering
+  \begin{tabular} 
+    {>{$}c<{$} | >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}}
+    \toprule   
+    Z_X & C_X' & \CA & C_X & \exp\\ 
+    \midrule
+%%
+    A_0 & G_{33} & Y & Y & Y\\
+    A_1 & D_4 & N & N & N\\
+    A_1^2 & B_3 & N & Y & N\\
+    A_2 & G_{3,1,2} & N & N & N\\
+    A_1^3 & G_{6,3,2}& Y & Y & Y\\
+    G_{33} & A_0 & Y & Y & Y\\
+    \bottomrule
+  \end{tabular}
+  \caption{A professional table set as a float} \label{tab:soodd}
+\end{table}
+
+Here is another reference to \cref{tab:soodd}.
+
+\begin{corollary}
+  The the subalgebra $H$ is a maximal toral subalgebra and the root system
+  of $(\fso_{2n+1}, H)$ is
+  \[
+  \Phi=\{\pm(x_i\pm x_j) \mid 1\leq i<j\leq n\,\} \cup \{\, 2x_i\mid 1\leq
+  i\leq n\,\}.
+  \]
+\end{corollary}
+
+\begin{proof}
+  By the proposition, $\fso_{2n+1}$ has a root space decomposition. Suppose
+  that $H'$ is a toral subalgebra containing $H$. Just suppose that $H'$
+  properly contains $H$. Then $H'$ is abelian and there is an element $h'$
+  in $H$ that is a linear combination of the basis elements in $\CB\setminus
+  \CB_H$. Write $h'=v_\alpha+h''$ where $v_\alpha$ is a non-zero vector in
+  the $\alpha$ root space. Then $v_\alpha$ is a non-zero multiple of the
+  root vector $e_\alpha$ in $\CB\setminus \CB_H$. Fix $h$ in $H$ such that
+  $h$ is not in $\ker \alpha$, then $[h,h']= [h, v_\alpha+h'']=
+  \alpha(h)v_\alpha + [h,h'']$. Then $\alpha(h)v_\alpha\ne 0$ and $[h, h'']$
+  is in the span of $\CB\setminus(\CB_H\cup \{e_\alpha\})$. Therefore,
+  $[h,h'] \ne0$. This contradicts the fact that $H'$ is abelian. Thus,
+  $H'=H$ and so $H$ is maximal.
+\end{proof}
+
+For $1\leq i\leq n$ define $\alpha_i$ in $H^*$ by
+\begin{align*}
+  \alpha_i&=x_i-x_{i+1} \quad (1\leq i\leq n-1),\\
+  \alpha_n&= x_n.
+\end{align*}
+Set $\Pi=\{\, \alpha_i\mid 1\leq i\leq n\,\}$. It's easy to see that $\Pi$
+is a basis of $H^*$. Notice that the roots $x_i-x_j$ with $i\ne j$ from
+\cref{tab:soodd} are split into two subsets depending on whether or not
+$i<j$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Adding a Section to Have More Sections}
+The usual Euclidean metric on $H^*$ is defined by 
+\[
+d(\sum_{i=1}^n a_i x_i, \sum_{i=1}^n b_i x_i) = \sqrt{ \sum_{i=1}^n
+  |a_i-b_i|^2}.
+\]
+With respect to this metric, the roots $\pm (x_i\pm x_j)$ with $i\ne j$ have
+length $\sqrt 2$ and the roots $\pm x_i$ have length $1$. Thus, there are
+two root lengths. Roots with minimum length are called \emph{short roots}
+and roots with maximum length are called \emph{long roots.} The highest root
+is a long root.
+
+By direct inspection, there is a unique highest short root,
+$x_1=\alpha_1+\dots +\alpha_n$, with height $n$.
+
+Notice that if $\alpha=\sum_{i=1}^n m_i\alpha_i$, then the coefficients
+$m_i$ are either all non-negative or all non-positive. Define
+\[
+\Phi^+=\Big\{\, \alpha=\sum_{i=1}^n m_i\alpha_i\mid mi_\geq 0 \, \forall\,
+1\leq i\leq n\,\Big\}
+\]
+and
+\[
+\Phi^- = \Big\{\, \alpha=\sum_{i=1}^n m_i\alpha_i\mid mi_\leq 0 \, \forall\,
+1\leq i\leq n\,\Big\}.
+\]
+Then $\Phi^-= -\Phi^+$ and $\Phi = \Phi^+ \coprod \Phi^-$.
+
+We next compute the elements $t_{\alpha_i}$ in $H$ for $1\leq i\leq
+n$. Using the basis $\CB$ of $\fso_{2n+1}$ it is straightforward to compute
+the restriction of the Killing form to $H$ by computing the matrices of $\ad
+h$ and $\ad h'$, and then $\trace(\ad h\circ \ad h')$ for $h$ and $h'$ in
+$H$. The result is
+\[
+\kappa(h,h')= \sum_{\alpha\in \Phi} \alpha(h) \alpha(h').
+\]
+If $h=\diag{0,\seq a, \seq{-a}}$ and $h'=\diag{0,\seq{a'}, \seq{-a'}}$, then
+$\alpha(h) \alpha(h')$ is given in \cref{tab:sodhh'}.
+\begin{table}[h!tb]
+  \small \arraycolsep10pt
+  \renewcommand{\arraystretch}{1.3}
+  \begin{equation*}
+    \begin{array}{c|c}
+      \alpha&\alpha(h) \alpha(h')\\\hline
+      x_i-x_j& (a_i-a_j)(a_i'-a_j')\\
+      x_i&(a_i)(a_i')= a_ia_i'\\ 
+      x_i+x_j&(a_i+a_j)(a_i'+a_j')\\ 
+      - x_i+x_j&(-a_i+a_j)(-a_i'+a_j')=(a_i-a_j)(a_i'-a_j')\\
+      -x_i &(-a_i)(-a_i')=a_ia_i'\\ 
+      -x_i-x_j&=(-a_i-a_j)(-a_i'-a_j')=(a_i+a_j)(a_i'+a_j') 
+    \end{array}  
+  \end{equation*}
+  \caption{$\alpha(h) \alpha(h')$ when $h=\diag{\seq a}$ and
+    $h'=\diag{\seq{a'}}$}\label{tab:sodhh'}  
+\end{table}
+
+The Killing form $\kappa(h,h')$ can be computed in terms of the coefficients
+of $h$ and $h'$ when $h$ and $h'$ are expressed as linear combinations of
+$\{x_1, \dots, x_n\}$ as follows.
+\begin{equation}
+  \label{eq:sod1}
+  \begin{aligned}
+    \kappa(h,h')&= \sum_{1\leq i<j\leq n} 2\left( (a_i-a_j)(a_i'-a_j') +
+      (a_i+a_j)(a_i'+a_j') \right) +2\sum_{i=1}^n \left( a_ia_i' \right)\\
+    &= \sum_{1\leq i<j \leq n} (4a_ia_i' +4a_ja_j') +\sum_{i=1}^n 2a_ia_i'
+    \\
+    &= \sum_{i=1}^n a_ia_i' (2+4(n-i) +4(i-1))\\
+    &=(4n-2) \sum_{i=1}^n a_ia_i'.
+  \end{aligned}
+\end{equation}
+The penultimate equality in \cref{eq:sod1} is most easily seen by arranging
+the summands in an $n\times n$ array.
+\[
+%\small
+\begin{array}{cccrrrrc}
+  2a_1a_1'&4a_1a_1'+ 4a_2a_2'&4a_1a_1'+
+  4a_3a_3'&&\dots&\dots&\dots&4a_{1}a_{1}'+ 4a_na_n' \\  
+  &2a_2a_2'&4a_2a_2'+4a_3a_3'&&&&&4a_{2}a_{2}'+ 4a_na_n' \\
+  &&2a_3a_3'&&&&&4a_{3}a_{3}'+ 4a_na_n' \\
+  &&&&&&&\vdots\hphantom{+4a_na_n'}\\
+  &&&&\ddots&&&\vdots\hphantom{+4a_na_n'}\\
+  &&&&&&&4a_{n-2}a_{n-2}'+ 4a_na_n' \\ 
+%  &&&&&&&4a_{n-1}a_{n-1}'+ 4a_na_n' \\
+  &&&&&&&2a_na_n'
+\end{array}
+\]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Type \texorpdfstring{$D_n$}{Dn}: Even dimensional, Orthogonal Lie
+  Algebras} 
+
+For $1\leq i\leq n$. Then the element $t_{\alpha_i}$ in $H$ is defined by
+the condition that
+\[
+\kappa(h, t_{\alpha_i}) = \alpha_i(h) \quad \text{for all $h$ in $H$.}
+\]
+
+Fix $1\leq i\leq n-1$ and suppose $t_{\alpha_i}= \diag{0,\seq t,
+  \seq{-t}}$. Then
+\begin{equation*}
+  a_i-a_{i+1}= (4n-2)(a_1t_1+\dots+a_it_i+a_{i+1}t_{i+1}+ \dots +a_nt_n)
+\end{equation*}
+when $h=\diag{0,\seq a, \seq{-a}}$. Thus, $t_1$, \dots, $t_n$ are such that
+\begin{equation*}
+  \textstyle a_1t_1+\dots+a_i\big(t_i- \frac 1{4n-2} \big) +a_{i+1}
+  \big(t_{i+1} +\frac 1{4n-2} \big)+  \dots +a_nt_n=0 
+\end{equation*}
+for all $a_1$, \dots, $a_n$ in $\BBC$. Taking $a_j=1$ and $a_k=0$ for $k\ne
+j$ we see that
+\[
+t_j= \begin{cases} \textstyle \frac 1{4n-2}&j=i \\ -\frac 1{4n-2} &j=i+1 \\0
+  &j\ne i, i+1. \end{cases}
+\]
+Therefore, for $1\leq i\leq n-1$, $t_{\alpha_i}=\frac 1{4n-2}( d_i-
+d_{i+1})$.
+
+Now consider $t_{\alpha_n}$. Say $t_{\alpha_i}= \diag{0,\seq t,
+  \seq{-t}}$. Then
+\begin{equation*}
+  a_n= (4n-2)(a_1t_1+\dots+a_it_i+a_{i+1}t_{i+1}+ \dots +a_nt_n)
+\end{equation*}
+when $h=\diag{0,\seq a, \seq{-a}}$. Thus, $t_1$, \dots, $t_n$ are such that
+\begin{equation*}
+  \textstyle  a_1t_1+\dots+a_{n-1} t_{n-1} +a_n\big(t_n-\frac 1{4n-2}\big)=0 
+\end{equation*}
+for all $a_1$, \dots, $a_n$ in $\BBC$. Taking $a_j=1$ and $a_k=0$ for $k\ne
+j$ we see that
+\[
+t_j= \begin{cases} \textstyle \frac 1{4n-2}&j=n \\ 0 &j\ne n. \end{cases}
+\]
+Therefore, $t_{\alpha_n}=\frac 1{4n-2} d_n$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "mydissertation"
+%%% End: 
